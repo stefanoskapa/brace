@@ -54,9 +54,9 @@ int main(int argc, char *argv[]) {
 
         char *loc = strchr(symbols, ch);
         if (loc != NULL) { // symbol found
-            int index = loc - symbols;
+            const int index = loc - symbols;
             if (index % 2 == 0) { // opening symbol
-                struct Frame frame = {ch, row, column};
+                const struct Frame frame = {ch, row, column};
                 stack_push(frame);
             } else {  // closing symbol
                 if (stack_index == -1 || stack_pop().symbol != symbols[index - 1]) {
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (stack_index != -1) {
-        struct Frame frame = stack_pop();
+        const struct Frame frame = stack_pop();
         printf("Opening symbol on %d:%d has no match ---> %c\n", frame.row, frame.column, frame.symbol);
         terminate(1, file);
     }
@@ -77,14 +77,14 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-void terminate(int code, FILE *file) {
+void terminate(const int code, FILE *file) {
     if (filearg == true && file != NULL) {
         fclose(file);
     }
     exit(code);
 }
 
-void stack_push(struct Frame frame) {
+void stack_push(const struct Frame frame) {
     stack[++stack_index] = frame;
 }
 
@@ -92,7 +92,7 @@ struct Frame stack_pop() {
     return stack[stack_index--];
 }
 
-void handle_args(int argc, char *argv[]) {
+void handle_args(const int argc, char *argv[]) {
 
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--version") == 0 || strcmp(argv[i], "-v") == 0) {
