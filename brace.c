@@ -11,7 +11,6 @@ struct Frame {
 };
 
 void handle_args(int argc, char *argv[]);
-void stack_add(struct Frame);
 void stack_push(struct Frame);
 struct Frame stack_pop();
 void terminate(int code, FILE *file);
@@ -22,7 +21,6 @@ int stack_index = -1;
 bool symarg = false;
 bool filearg = false;
 char symbols[MAX_SYMBOLS + 1] = {0};
-size_t symbol_size = 0;
 char filename[255] = {0};
 
 int main(int argc, char *argv[]) {
@@ -138,7 +136,7 @@ void show_help() {
     printf("Usage: brace [OPTION]... [FILE]\n");
     printf("Find unbalanced symbols in text.\n\n");
     printf("With no FILE, read standard input.\n\n");
-    printf("  -s <symbols>          define custom opening and closing symbols\n");
+    printf("  -s <symbols>          define custom pairs of open/close symbols\n");
     printf("  -v, --version         show current version\n");
     printf("  -h, --help            display this help and exit\n\n");
     printf("Example:\n");
