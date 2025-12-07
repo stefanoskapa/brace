@@ -137,6 +137,7 @@ void show_help() {
     printf("Find unbalanced symbols in text.\n\n");
     printf("With no FILE, read standard input.\n\n");
     printf("  -s <symbols>          define custom pairs of open/close symbols\n");
+    printf("                        (default is \"[]{}()\"\n");
     printf("  -v, --version         show current version\n");
     printf("  -h, --help            display this help and exit\n\n");
     printf("Example:\n");
