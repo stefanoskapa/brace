@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 
         char *loc = strchr(symbols, ch);
         if (loc != NULL) { // symbol found
-            long long index = loc - symbols;
+            int index = loc - symbols;
             if (index % 2 == 0) { // opening symbol
                 struct Frame frame = {ch, row, column};
                 stack_push(frame);
