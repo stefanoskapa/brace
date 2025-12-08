@@ -9,7 +9,7 @@ A lightweight command-line utility for checking balanced symbols in text files. 
 The easiest way to install brace on Ubuntu:
 
 ```bash
-sudo add-apt-repository ppa:stefanoskapa/brace
+sudo add-apt-repository ppa:stefanos-kapa/brace
 sudo apt update
 sudo apt install brace
 ```
@@ -18,7 +18,7 @@ To uninstall:
 
 ```bash
 sudo apt remove brace
-sudo add-apt-repository --remove ppa:stefanoskapa/brace
+sudo add-apt-repository --remove ppa:stefanos-kapa/brace 
 ```
 
 ### Build from source
