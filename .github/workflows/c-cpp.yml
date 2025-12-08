@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            arch: x86_64
+            cc: gcc
+          - os: ubuntu-latest
+            arch: aarch64
+            cc: aarch64-linux-gnu-gcc
+          - os: ubuntu-latest
+            arch: armhf
+            cc: arm-linux-gnueabihf-gcc
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install cross-compilers
+        if: matrix.arch != 'x86_64'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf
+
+      - name: Build
+        run: |
+          ${{ matrix.cc }} -O2 -static -o brace-${{ matrix.arch }} brace.c
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brace-${{ matrix.arch }}
+          path: brace-${{ matrix.arch }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: binaries
+          merge-multiple: true
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: binaries/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
