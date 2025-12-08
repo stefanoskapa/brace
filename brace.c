@@ -3,8 +3,13 @@
 #include <string.h>
 #include <stdbool.h>
 
+#ifndef VERSION
+#define VERSION "unknown"
+#endif
+
 #define MAX_SYMBOLS 64
 #define MAX_STACK_SIZE 65536
+
 struct Frame {
     char symbol;
     int row;
@@ -112,7 +117,7 @@ void handle_args(const int argc, char *argv[]) {
 
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--version") == 0 || strcmp(argv[i], "-v") == 0) {
-            printf("version 0\n");
+            printf("Brace %s\n", VERSION);
             terminate(SUCCESS);
         } else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
             show_help();
