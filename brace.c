@@ -75,8 +75,10 @@ int main(int argc, char *argv[]) {
     }
 
     if (stack_index != -1) {
-        const struct Frame frame = stack_pop();
-        printf("Opening symbol on %d:%d has no match ---> %c\n", frame.row, frame.column, frame.symbol);
+        while (stack_index > -1) {
+            const struct Frame frame = stack_pop();
+            printf("Opening symbol on %d:%d has no match ---> %c\n", frame.row, frame.column, frame.symbol);
+        }
         terminate(UNBALANCED);
     }
     
