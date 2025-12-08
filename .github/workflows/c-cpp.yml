@@ -35,7 +35,7 @@ jobs:
 
       - name: Build
         run: |
-          make CC=${{ matrix.cc }} CFLAGS="-O2 -static"
+          make CC=${{ matrix.cc }}
           mv brace brace-${{ matrix.arch }}
       
       - name: Test
