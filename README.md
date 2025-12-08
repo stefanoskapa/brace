@@ -105,5 +105,5 @@ brace -s "()[]{}<>" file.txt
 | Code | Meaning |
 |------|---------|
 | 0 | Balanced/Success |
-| 1 | Mismatch found |
+| 1 | Unbalanced |
 | 2 | Error |
