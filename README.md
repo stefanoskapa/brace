@@ -104,5 +104,6 @@ brace -s "()[]{}<>" file.txt
 
 | Code | Meaning |
 |------|---------|
-| 0 | All symbols balanced |
-| 1 | Mismatch found or error |
+| 0 | Balanced/Success |
+| 1 | Mismatch found |
+| 2 | Error |
