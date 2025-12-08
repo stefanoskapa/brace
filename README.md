@@ -2,23 +2,12 @@
 
 A lightweight command-line utility for checking balanced symbols in text files. Detects mismatched brackets, parentheses, braces, and user-defined symbol pairs.
 
-## Installation
-
-### From PPA (Ubuntu)
-
-```bash
-sudo add-apt-repository ppa:stefanos-kapa/brace
-sudo apt update
-sudo apt install brace
-```
-
-### From source
+## Build
 
 ```bash
 git clone https://github.com/stefanoskapa/brace.git
 cd brace
 make
-sudo make install
 ```
 
 ## Usage
