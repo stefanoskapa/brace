@@ -1,0 +1,18 @@
+Source: brace
+Section: utils
+Priority: optional
+Maintainer: Stefanos Koutsouflakis <koutsouflakis.stefanos@gmail.com>
+Build-Depends: debhelper-compat (= 13), build-essential
+Standards-Version: 4.7.0
+Homepage: https://github.com/stefanoskapa/brace
+Vcs-Git: https://github.com/stefanoskapa/brace.git
+Vcs-Browser: https://github.com/stefanoskapa/brace
+Rules-Requires-Root: no
+
+Package: brace
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A utility for verifying balanced symbols in text files.
+  A lightweight command-line utility for checking balanced symbols
+  in text files. Detects mismatched brackets, parentheses, braces,
+  and user-defined symbol pairs.
