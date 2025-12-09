@@ -4,7 +4,7 @@ A lightweight command-line utility for checking balanced symbols in text files. 
 
 ## Installation
 
-### Ubuntu/Debian (via PPA)
+### Ubuntu (via PPA)
 
 The easiest way to install brace on Ubuntu:
 
